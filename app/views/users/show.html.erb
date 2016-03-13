@@ -2,3 +2,30 @@
     <%= gravatar_for @user %>
     <%= @user.name %>
 </h1>
+
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+        
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th>
+                        <span>email</span>
+                    </th>
+                    <td>
+                        <%= @user.email %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span>自己紹介</span>
+                    </th>
+                    <td>
+                        <%= @user.profile %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <%= link_to "edit" ,edit_user_url,class: "btn btn-block btn-primary"%>
+    </div>
+</div>
