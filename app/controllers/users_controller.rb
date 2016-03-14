@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only:[:show, :edit, :update]
-
+  before_action :confirm_user, only:[:edit, :update]
+  
   def show
   end
   
@@ -36,7 +37,11 @@ class UsersController < ApplicationController
   end
   
   def set_user
-     @user = User.find(params[:id])
+    @user = User.find(params[:id])
+  end
+  
+  def confirm_user
+    redirect_to root_path if @user != current_user
   end
   
 end
