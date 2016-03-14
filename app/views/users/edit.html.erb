@@ -7,8 +7,14 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+
       <%= f.label :profile %>
-      <%= f.text_field :profile %>
+      <%= f.text_area :profile %>
 
       <%= f.submit "Update my update", class: "btn btn-large btn-primary" %>
     <% end %>
