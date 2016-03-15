@@ -27,4 +27,9 @@ class User < ActiveRecord::Base
     def following?(other_user)
         following_users.include?(other_user)
     end
+
+    # あるユーザがフォローしている一覧を表示する
+    def following(current_user)
+        following_users.find(current_user.id)
+    end
 end
