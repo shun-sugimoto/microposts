@@ -10,4 +10,21 @@ class RelationshipsController < ApplicationController
         @user = current_user.following_relationships.find(params[:id]).followed
         current_user.unfollow(@user)
     end
+
+
+  # あるユーザがフォローしている一覧を表示する
+  def following
+      @user = User.find(params[:id])
+      @users =  @user.following_users
+      render 'users/show_follower'
+  end
+
+  # あるユーザがフォローしている一覧を表示する
+  def followed
+      @user = User.find(params[:id])
+      @users =  @user.followed_users
+      render 'users/show_follower'
+  end
+
+      
 end

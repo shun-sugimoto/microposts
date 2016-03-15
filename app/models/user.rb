@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     has_many :following_relationships, class_name: "Relationship",foreign_key: "follower_id", dependent: :destroy
     has_many :following_users, through: :following_relationships, source: :followed
     has_many :follower_relationships, class_name: "Relationship",foreign_key: "followed_id", dependent: :destroy
-    has_many :following_users, through: :following_relationships, source: :follower
+    has_many :follower_users, through: :follower_relationships, source: :follower
 
 
     # 他のユーザをフォローする
@@ -26,10 +26,5 @@ class User < ActiveRecord::Base
     # あるユーザをフォローしているかどうか?
     def following?(other_user)
         following_users.include?(other_user)
-    end
-
-    # あるユーザがフォローしている一覧を表示する
-    def following(current_user)
-        following_users.find(current_user.id)
     end
 end
