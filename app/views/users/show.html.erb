@@ -1,12 +1,6 @@
 <div class="row">
   <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <%= link_to "edit" ,edit_user_url%>
-    </section>
+    <%= render 'users/side' %>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

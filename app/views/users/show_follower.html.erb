@@ -1,0 +1,23 @@
+<div class="row">
+  <aside class="col-md-4">
+    <%= render 'users/side' %>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= @title  %> (<%= @users.count %>)</h3>
+    <% if @users.any? %>
+      <% @users.each do |user| %>
+      <ul class="media-list">
+        <li class="media">
+          <a class="media-left" href="#">
+            <%= gravatar_for user %>        
+          </a>
+          <div class="media-body">
+            <h4><%= user.name %></h4>
+          </div>
+        </li>
+      </ul>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+  

@@ -1,0 +1,29 @@
+<section class="user_info">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+  <%= link_to "edit" ,edit_user_url%>
+</section>
+<%= link_to "follower", following_relationship_path ,class:"btn btn-lg btn-primary" %>
+<%= link_to "followed", follower_relationship_path ,class:"btn btn-lg btn-primary" %>
+<table class="table table-striped">
+  <tbody>
+      <tr>
+          <th>
+              <span>email</span>
+          </th>
+          <td>
+              <%= @user.email %>
+          </td>
+      </tr>
+      <tr>
+          <th>
+              <span>自己紹介</span>
+          </th>
+          <td>
+              <%= @user.profile %>
+          </td>
+      </tr>
+  </tbody>
+</table>
