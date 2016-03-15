@@ -1,0 +1,8 @@
+<section class="user_info">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+</section>
+<%= link_to "follower", following_relationship_path ,class:"btn btn-lg btn-primary" %>
+<%= link_to "followed", follower_relationship_path ,class:"btn btn-lg btn-primary" %>

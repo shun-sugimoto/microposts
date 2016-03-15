@@ -1,17 +1,10 @@
 <div class="row">
   <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <%= link_to "follower", following_relationship_path ,class:"btn btn-lg btn-primary" %>
-    <%= link_to "followed", followed_relationship_path ,class:"btn btn-lg btn-primary" %>
+    <%= render 'users/side' %>
   </aside>
   <div class="col-md-8">
+    <h3><%= @title  %> (<%= @users.count %>)</h3>
     <% if @users.any? %>
-      <h3>Follower (<%= @users.count %>)</h3>
       <% @users.each do |user| %>
       <ul class="media-list">
         <li class="media">
