@@ -19,12 +19,10 @@ class RelationshipsController < ApplicationController
       render 'users/show_follower'
   end
 
-  # あるユーザがフォローしている一覧を表示する
+  # あるユーザがフォローされている一覧を表示する
   def followed
       @user = User.find(params[:id])
-      @users =  @user.followed_users
+      @users =  @user.follower_users
       render 'users/show_follower'
   end
-
-      
 end

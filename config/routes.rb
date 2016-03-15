@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :relationships do
     member do
-      get :following
+      get :following,:followed
     end
   end
 
