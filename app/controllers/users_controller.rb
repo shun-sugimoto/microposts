@@ -32,6 +32,22 @@ class UsersController < ApplicationController
     end
   end
 
+  # あるユーザがフォローしている一覧を表示する
+  def following
+      @user = User.find(params[:id])
+      @title = "Follower"
+      @users =  @user.following_users
+      render 'users/show_follower'
+  end
+
+  # あるユーザがフォローされている一覧を表示する
+  def follower
+      @user = User.find(params[:id])
+      @title = "Followed"
+      @users =  @user.follower_users
+      render 'users/show_follower'
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password,
@@ -45,5 +61,4 @@ class UsersController < ApplicationController
   def confirm_user
     redirect_to root_path if @user != current_user
   end
-  
 end
