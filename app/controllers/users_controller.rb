@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:[:show, :edit, :update]
+  before_action :set_user, only:[:show, :edit, :update,:following, :follower]
   before_action :confirm_user, only:[:edit, :update]
   
   def show
-    @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
   end
   
@@ -35,18 +34,16 @@ class UsersController < ApplicationController
 
   # あるユーザがフォローしている一覧を表示する
   def following
-      @user = User.find(params[:id])
       @title = "Follower"
       @users =  @user.following_users
-      render 'users/show_follower'
+      render 'show_follower'
   end
 
   # あるユーザがフォローされている一覧を表示する
   def follower
-      @user = User.find(params[:id])
       @title = "Followed"
       @users =  @user.follower_users
-      render 'users/show_follower'
+      render 'show_follower'
   end
 
   private
